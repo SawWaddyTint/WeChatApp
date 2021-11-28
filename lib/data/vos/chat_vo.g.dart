@@ -7,15 +7,21 @@ part of 'chat_vo.dart';
 // **************************************************************************
 
 ChatVO _$ChatVOFromJson(Map<String, dynamic> json) => ChatVO(
-      json['id'] as int?,
-      json['message'] as String?,
-      json['type'] as String?,
-      json['created_date'] as String?,
+      id: json['id'] as int?,
+      text: json['text'] as String?,
+      imageUrl: json['image_url'] as String?,
+      videoUrl: json['video_url'] as String?,
+      type: json['type'] as String?,
+      createdDate: json['created_date'] as String?,
+      textWithFile: json['textWithFile'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$ChatVOToJson(ChatVO instance) => <String, dynamic>{
       'id': instance.id,
-      'message': instance.message,
+      'text': instance.text,
+      'image_url': instance.imageUrl,
+      'video_url': instance.videoUrl,
       'type': instance.type,
       'created_date': instance.createdDate,
+      'textWithFile': instance.textWithFile,
     };

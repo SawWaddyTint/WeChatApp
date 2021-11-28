@@ -72,7 +72,6 @@ class WeChatPage extends StatelessWidget {
               ),
             ),
             Container(
-              // margin: EdgeInsets.only(top: 4.0),
               color: CONTACTS_COMMON_COLOR,
               height: 1,
             )
@@ -104,7 +103,7 @@ class WeChatPage extends StatelessWidget {
   void _navigateToChatPage(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const ChatPage(),
+        builder: (context) => ChatPage(),
       ),
     );
   }

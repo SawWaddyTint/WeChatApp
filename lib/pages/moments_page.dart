@@ -84,7 +84,7 @@ class MomentsPage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 300.0,
+                height: 250.0,
                 child: Stack(
                   alignment: Alignment.center,
                   children: <Widget>[

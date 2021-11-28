@@ -7,8 +7,14 @@ class ChatVO {
   @JsonKey(name: "id")
   int? id;
 
-  @JsonKey(name: "message")
-  String? message;
+  @JsonKey(name: "text")
+  String? text;
+
+  @JsonKey(name: "image_url")
+  String? imageUrl;
+
+  @JsonKey(name: "video_url")
+  String? videoUrl;
 
   @JsonKey(name: "type")
   String? type;
@@ -16,12 +22,17 @@ class ChatVO {
   @JsonKey(name: "created_date")
   String? createdDate;
 
-  ChatVO(
+  bool textWithFile;
+
+  ChatVO({
     this.id,
-    this.message,
+    this.text,
+    this.imageUrl,
+    this.videoUrl,
     this.type,
     this.createdDate,
-  );
+    this.textWithFile = false,
+  });
   factory ChatVO.fromJson(Map<String, dynamic> json) => _$ChatVOFromJson(json);
 
   Map<String, dynamic> toJson() => _$ChatVOToJson(this);

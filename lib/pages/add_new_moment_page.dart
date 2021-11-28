@@ -290,8 +290,27 @@ class PostImageView extends StatelessWidget {
           ),
           GestureDetector(
             child: Visibility(
-                visible: !bloc.showNetworkImg && bloc.isVideo,
-                child: VideoView(bloc.videoFile ?? File(""), "")),
+                visible: !bloc.showNetworkImg &&
+                    !bloc.showNetworkVideo &&
+                    bloc.isVideo,
+                child: VideoView(
+                  videoPlayerController: VideoPlayerController.file(
+                    bloc.videoFile ?? File(""),
+                  ),
+                )),
+            onTap: () {
+              _chooseFile(context);
+            },
+          ),
+          GestureDetector(
+            child: Visibility(
+                visible: !bloc.showNetworkImg &&
+                    bloc.showNetworkVideo &&
+                    bloc.isVideo,
+                child: VideoView(
+                  videoPlayerController:
+                      VideoPlayerController.file(bloc.videoFile ?? File("")),
+                )),
             onTap: () {
               _chooseFile(context);
             },

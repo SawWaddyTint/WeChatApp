@@ -19,6 +19,7 @@ class AddNewMomentBloc extends ChangeNotifier {
   MomentVO? mMoment;
   bool isVideo = false;
   bool showNetworkImg = false;
+  bool showNetworkVideo = false;
 
   /// Image
   File? chosenImageFile;
@@ -33,7 +34,7 @@ class AddNewMomentBloc extends ChangeNotifier {
   AddNewMomentBloc({int? newsFeedId}) {
     if (newsFeedId != null) {
       isInEditMode = true;
-
+      showNetworkVideo = true;
       _prepopulateDataForEditMode(newsFeedId);
     } else {
       _prepopulateDataForAddNewPost();
@@ -58,7 +59,12 @@ class AddNewMomentBloc extends ChangeNotifier {
       userName = newsFeed.userName ?? "";
       profilePicture = newsFeed.profilePicture ?? "";
       newPostDescription = newsFeed.description ?? "";
-      imageUrl = newsFeed.postImage ?? "";
+      if (newsFeed.fileType == "image") {
+        isVideo = false;
+      } else {
+        isVideo = true;
+      }
+      showNetworkVideo = true;
       mMoment = newsFeed;
       _notifySafely();
     });
